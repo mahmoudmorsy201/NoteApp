@@ -103,17 +103,17 @@ extension NotesTableViewController: UISearchBarDelegate {
         notes = notes?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "title", ascending: true)
         DispatchQueue.main.async {
             self.notesTableView.reloadData()
+            searchBar.resignFirstResponder()
         }
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             loadNotes()
-            DispatchQueue.main.async {
-                searchBar.resignFirstResponder()
-            }
         }
     }
+
 }
 
 
