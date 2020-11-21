@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 
 
+
 class NotesTableViewController: UIViewController {
     
     let realm = try! Realm()
@@ -86,15 +87,15 @@ extension NotesTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell",for: indexPath) as! NoteViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell",for: indexPath) as! NotesTableViewCell
         
-        cell.title?.text = notes?[indexPath.row].title ?? "No Notes Added"
-        cell.note.text = notes?[indexPath.row].noteContet
+        cell.cellTitle.text = notes?[indexPath.row].title ?? "No Notes Added"
+        cell.cellNote.text = notes?[indexPath.row].noteContet
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         let date = dateFormatter.string(from: Date())
-        cell.dateCreated.text = date
+        cell.cellDate.text = date
         
         return cell
     }
@@ -102,17 +103,52 @@ extension NotesTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notes?.count ?? 1
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            
+            if let noteForDeletion = self.notes?[indexPath.row] {
+                do {
+                    try self.realm.write {
+                        self.realm.delete(noteForDeletion)
+                    }
+                } catch {
+                    print("Error Deleting current note, \(error)")
+                }
+            }
+            
+            DispatchQueue.main.async {
+                tableView.reloadData()
+            }
+
+            completionHandler(true)
+        }
+        
+        delete.image = UIImage(imageLiteralResourceName: "Trash-Icon")
+        
+        let swipe = UISwipeActionsConfiguration(actions: [delete])
+        return swipe
+    }
 }
 
 //MARK: - Search Bar Delegate Methods
 extension NotesTableViewController: UISearchBarDelegate {
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        notes = notes?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "title", ascending: true)
-        DispatchQueue.main.async {
-            self.notesTableView.reloadData()
-            searchBar.resignFirstResponder()
-        }
         
+        if searchBar.text?.count == 0 {
+            loadNotes()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        } else {
+            notes = notes?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "title", ascending: true)
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+                self.notesTableView.reloadData()
+                
+            }
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -122,6 +158,8 @@ extension NotesTableViewController: UISearchBarDelegate {
     }
     
 }
+
+
 
 
 

@@ -1,16 +1,18 @@
 //
-//  NoteViewCell.swift
+//  NotesTableViewCell.swift
 //  NoteAppRealm
 //
 //  Created by Mahmoud Morsy on 11/21/20.
 //
 
 import UIKit
+import SwipeCellKit
 
-class NoteViewCell: UITableViewCell {
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var note: UILabel!
-    @IBOutlet weak var dateCreated: UILabel!
+class NotesTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var cellTitle: UILabel!
+    @IBOutlet weak var cellNote: UILabel!
+    @IBOutlet weak var cellDate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,5 +24,5 @@ class NoteViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
+

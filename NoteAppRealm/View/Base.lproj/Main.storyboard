@@ -28,7 +28,7 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" rowHeight="83" id="xTH-EQ-Ynu" customClass="NoteViewCell" customModule="NoteAppRealm" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" rowHeight="83" id="xTH-EQ-Ynu" customClass="NotesTableViewCell" customModule="NoteAppRealm" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="414" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xTH-EQ-Ynu" id="i0B-As-8ez">
@@ -46,15 +46,15 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59O-qT-gWW">
                                                             <rect key="frame" x="0.0" y="40.5" width="64" height="32.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Es-eo-XdJ">
-                                                    <rect key="frame" x="348.5" y="31" width="40.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                    <rect key="frame" x="363.5" y="31" width="25.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -70,9 +70,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dateCreated" destination="0Es-eo-XdJ" id="TGM-Nq-KSG"/>
-                                            <outlet property="note" destination="59O-qT-gWW" id="Q5Y-v0-P6K"/>
-                                            <outlet property="title" destination="HI7-mR-34B" id="6RW-Op-lRm"/>
+                                            <outlet property="cellDate" destination="0Es-eo-XdJ" id="GcO-Y5-NWs"/>
+                                            <outlet property="cellNote" destination="59O-qT-gWW" id="77n-HC-uJ1"/>
+                                            <outlet property="cellTitle" destination="HI7-mR-34B" id="atp-1n-A3g"/>
                                             <segue destination="NfC-7g-MyZ" kind="show" identifier="cellToNote" id="J08-Hw-RhB"/>
                                         </connections>
                                     </tableViewCell>
@@ -139,22 +139,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZG4-qp-Ci7">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="save" id="yn5-xi-mSw">
-                                <connections>
-                                    <action selector="saveButtonPressed:" destination="NfC-7g-MyZ" id="W06-A4-icu"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Delete" id="RTc-Q5-bcx">
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                                <connections>
-                                    <action selector="deleteButtonPressed:" destination="NfC-7g-MyZ" id="2UV-VL-RPR"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yn5-xi-mSw">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="NfC-7g-MyZ" id="W06-A4-icu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="deleteButton" destination="RTc-Q5-bcx" id="sgG-vL-jCa"/>
                         <outlet property="noteContent" destination="6Eg-Ea-XRC" id="HuO-IX-juR"/>
                         <outlet property="noteTitle" destination="QYx-K2-yq5" id="2v0-Gf-C1w"/>
                     </connections>
@@ -194,9 +185,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

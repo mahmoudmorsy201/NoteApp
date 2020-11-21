@@ -31,24 +31,24 @@ class NoteDisplayViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if update == false {
-            self.deleteButton.isEnabled = false
-            self.deleteButton.title = ""
-        }
+//        if update == false {
+//            self.deleteButton.isEnabled = false
+//            self.deleteButton.title = ""
+//        }
     }
-    @IBAction func deleteButtonPressed(_ sender: UIBarButtonItem) {
-        do {
-            try realm.write {
-                if let currentNote = selectedNote {
-                    realm.delete(currentNote)
-                }
-            }
-        } catch {
-            print("Error Deleting current note, \(error)")
-        }
-        
-        self.navigationController?.popViewController(animated: true)
-    }
+//    @IBAction func deleteButtonPressed(_ sender: UIBarButtonItem) {
+//        do {
+//            try realm.write {
+//                if let currentNote = selectedNote {
+//                    realm.delete(currentNote)
+//                }
+//            }
+//        } catch {
+//            print("Error Deleting current note, \(error)")
+//        }
+//        
+//        self.navigationController?.popViewController(animated: true)
+//    }
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
 
