@@ -51,13 +51,14 @@ class NoteDisplayViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        
+
         if update == true {
             updateNote()
             self.navigationController?.popViewController(animated: true)
         } else if noteTitle.text != "" && noteContent.text != "" {
             newNote.title = noteTitle.text!
             newNote.noteContet = noteContent.text!
+            newNote.date = Date()
             do {
                 try realm.write {
                     realm.add(newNote)

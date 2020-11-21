@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D50B1EFC72A80F83105537E /* Pods_NoteAppRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CC8C56CE718E4EEB511B8D /* Pods_NoteAppRealm.framework */; };
+		168632392569485100650889 /* NoteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168632382569485100650889 /* NoteViewCell.swift */; };
 		16CB1714254DE6CE00BB18DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB1713254DE6CE00BB18DE /* AppDelegate.swift */; };
 		16CB1716254DE6CE00BB18DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB1715254DE6CE00BB18DE /* SceneDelegate.swift */; };
 		16CB1718254DE6CE00BB18DE /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB1717254DE6CE00BB18DE /* NotesTableViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		069BDB05F2BC2CA08B0ABF92 /* Pods-NoteAppRealm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteAppRealm.release.xcconfig"; path = "Target Support Files/Pods-NoteAppRealm/Pods-NoteAppRealm.release.xcconfig"; sourceTree = "<group>"; };
+		168632382569485100650889 /* NoteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewCell.swift; sourceTree = "<group>"; };
 		16CB1710254DE6CE00BB18DE /* NoteAppRealm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteAppRealm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CB1713254DE6CE00BB18DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16CB1715254DE6CE00BB18DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				16CB1717254DE6CE00BB18DE /* NotesTableViewController.swift */,
 				16CB172D254E03DF00BB18DE /* NoteDisplayViewController.swift */,
+				168632382569485100650889 /* NoteViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				16CB1718254DE6CE00BB18DE /* NotesTableViewController.swift in Sources */,
 				16CB172E254E03DF00BB18DE /* NoteDisplayViewController.swift in Sources */,
 				16CB1714254DE6CE00BB18DE /* AppDelegate.swift in Sources */,
+				168632392569485100650889 /* NoteViewCell.swift in Sources */,
 				16CB1716254DE6CE00BB18DE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

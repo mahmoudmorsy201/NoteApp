@@ -86,8 +86,15 @@ extension NotesTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell",for: indexPath)
-        cell.textLabel?.text = notes?[indexPath.row].title ?? "No Notes Added"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell",for: indexPath) as! NoteViewCell
+        
+        cell.title?.text = notes?[indexPath.row].title ?? "No Notes Added"
+        cell.note.text = notes?[indexPath.row].noteContet
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let date = dateFormatter.string(from: Date())
+        cell.dateCreated.text = date
         
         return cell
     }
@@ -113,7 +120,7 @@ extension NotesTableViewController: UISearchBarDelegate {
             loadNotes()
         }
     }
-
+    
 }
 
 
