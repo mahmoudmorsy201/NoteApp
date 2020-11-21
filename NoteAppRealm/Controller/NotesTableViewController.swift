@@ -16,12 +16,14 @@ class NotesTableViewController: UIViewController {
     var notes: Results<Note>?
     
     @IBOutlet weak var notesTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadNotes()
         notesTableView.delegate = self
         notesTableView.dataSource = self
+        searchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,6 +94,25 @@ extension NotesTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notes?.count ?? 1
+    }
+}
+
+//MARK: - Search Bar Delegate Methods
+extension NotesTableViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        notes = notes?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "title", ascending: true)
+        DispatchQueue.main.async {
+            self.notesTableView.reloadData()
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            loadNotes()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
     }
 }
 
