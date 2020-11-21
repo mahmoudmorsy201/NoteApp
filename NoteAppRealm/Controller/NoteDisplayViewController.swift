@@ -20,6 +20,7 @@ class NoteDisplayViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     @IBOutlet weak var noteContent: UITextView!
     @IBOutlet weak var noteTitle: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,10 +28,6 @@ class NoteDisplayViewController: UIViewController {
             noteTitle.text = selectedNote!.title
             noteContent.text = selectedNote!.noteContet
         }
-        
-        
-        //        print(selectedNote?.title)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,8 +67,6 @@ class NoteDisplayViewController: UIViewController {
             }
             self.navigationController?.popViewController(animated: true)
         }
-        
-        
     }
     
     //MARK: - Updating current cell in the table view

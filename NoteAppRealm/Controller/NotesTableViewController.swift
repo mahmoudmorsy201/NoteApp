@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 
 
-class NotesTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NotesTableViewController: UIViewController {
     
     let realm = try! Realm()
     
@@ -32,60 +32,8 @@ class NotesTableViewController: UIViewController, UITableViewDelegate, UITableVi
         loadNotes()
     }
     
-    // MARK: - Table View Data Source Methods
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell",for: indexPath)
-        cell.textLabel?.text = notes?[indexPath.row].title ?? "No Notes Added"
-        
-        return cell
-        
-        
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes?.count ?? 1
-    }
-    
-    //MARK: - Table View Delegate Methods
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! NoteDisplayViewController
-        
-        if segue.identifier == "cellToNote" {
-            if let indexPath = notesTableView.indexPathForSelectedRow {
-                vc.selectedNote = notes?[indexPath.row]
-            }
-            vc.update = true
-        }
-    }
-    
     //MARK: - Add New Note action
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        //        var textField = UITextField()
-        //
-        //
-        //        let alert = UIAlertController(title: "Add new Note", message: "", preferredStyle: .alert)
-        //
-        //        let action = UIAlertAction(title: "Add", style: .default) { (action) in
-        //            let newNote = Note()
-        //            newNote.title = textField.text!
-        //            self.saveNote(note: newNote)
-        //        }
-        //
-        //        alert.addAction(action)
-        //
-        //        alert.addTextField { (field) in
-        //            textField = field
-        //            textField.placeholder = "Add new Note's Title"
-        //        }
-        //
-        //        present(alert, animated: true, completion: nil)
-        
     }
     
     
@@ -109,7 +57,41 @@ class NotesTableViewController: UIViewController, UITableViewDelegate, UITableVi
         DispatchQueue.main.async {
             self.notesTableView.reloadData()
         }
+    }
+}
+
+//MARK: - Table View Delegate Methods
+extension NotesTableViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! NoteDisplayViewController
         
+        if segue.identifier == "cellToNote" {
+            if let indexPath = notesTableView.indexPathForSelectedRow {
+                vc.selectedNote = notes?[indexPath.row]
+            }
+            vc.update = true
+        }
+    }
+}
+
+// MARK: - Table View Data Source Methods
+extension NotesTableViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell",for: indexPath)
+        cell.textLabel?.text = notes?[indexPath.row].title ?? "No Notes Added"
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return notes?.count ?? 1
     }
 }
 

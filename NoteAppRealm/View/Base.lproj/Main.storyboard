@@ -68,13 +68,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Eg-Ea-XRC">
-                                <rect key="frame" x="10" y="142" width="394" height="710"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="10" y="144" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QYx-K2-yq5">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QYx-K2-yq5">
                                 <rect key="frame" x="10" y="100" width="394" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -83,13 +83,13 @@
                         <viewLayoutGuide key="safeArea" id="HN5-Qk-Y8k"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Eg-Ea-XRC" firstAttribute="top" secondItem="QYx-K2-yq5" secondAttribute="bottom" constant="10" id="0Uw-aJ-NcN"/>
-                            <constraint firstItem="QYx-K2-yq5" firstAttribute="leading" secondItem="HN5-Qk-Y8k" secondAttribute="leading" constant="10" id="DsD-Jd-HgJ"/>
-                            <constraint firstItem="HN5-Qk-Y8k" firstAttribute="bottom" secondItem="6Eg-Ea-XRC" secondAttribute="bottom" constant="10" id="MSu-J6-7fh"/>
-                            <constraint firstItem="6Eg-Ea-XRC" firstAttribute="leading" secondItem="HN5-Qk-Y8k" secondAttribute="leading" constant="10" id="TqA-iM-dog"/>
-                            <constraint firstItem="QYx-K2-yq5" firstAttribute="top" secondItem="HN5-Qk-Y8k" secondAttribute="top" constant="10" id="cdX-9g-XWA"/>
-                            <constraint firstItem="HN5-Qk-Y8k" firstAttribute="trailing" secondItem="QYx-K2-yq5" secondAttribute="trailing" constant="10" id="ejl-QG-reH"/>
-                            <constraint firstItem="HN5-Qk-Y8k" firstAttribute="trailing" secondItem="6Eg-Ea-XRC" secondAttribute="trailing" constant="10" id="l4F-ah-Uot"/>
+                            <constraint firstAttribute="bottom" secondItem="6Eg-Ea-XRC" secondAttribute="bottom" id="5Nr-oe-Kw5"/>
+                            <constraint firstItem="QYx-K2-yq5" firstAttribute="top" secondItem="HN5-Qk-Y8k" secondAttribute="top" constant="12" id="8Zd-8a-aMB"/>
+                            <constraint firstItem="6Eg-Ea-XRC" firstAttribute="trailing" secondItem="HN5-Qk-Y8k" secondAttribute="trailing" constant="10" id="Ikd-2K-uYC"/>
+                            <constraint firstItem="QYx-K2-yq5" firstAttribute="leading" secondItem="HN5-Qk-Y8k" secondAttribute="leading" constant="10" id="Q8e-Pj-jMT"/>
+                            <constraint firstItem="6Eg-Ea-XRC" firstAttribute="leading" secondItem="HN5-Qk-Y8k" secondAttribute="leading" constant="10" id="Qhq-bd-Aht"/>
+                            <constraint firstItem="HN5-Qk-Y8k" firstAttribute="trailing" secondItem="QYx-K2-yq5" secondAttribute="trailing" constant="10" id="ekX-RP-xzE"/>
+                            <constraint firstItem="6Eg-Ea-XRC" firstAttribute="top" secondItem="QYx-K2-yq5" secondAttribute="bottom" constant="10" id="pN8-tt-1Jp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZG4-qp-Ci7">
@@ -142,6 +142,9 @@
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
