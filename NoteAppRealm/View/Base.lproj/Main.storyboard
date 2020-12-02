@@ -141,13 +141,7 @@
                             <constraint firstItem="6Eg-Ea-XRC" firstAttribute="top" secondItem="QYx-K2-yq5" secondAttribute="bottom" constant="10" id="pN8-tt-1Jp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ZG4-qp-Ci7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yn5-xi-mSw">
-                            <connections>
-                                <action selector="saveButtonPressed:" destination="NfC-7g-MyZ" id="W06-A4-icu"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="ZG4-qp-Ci7"/>
                     <connections>
                         <outlet property="noteContent" destination="6Eg-Ea-XRC" id="HuO-IX-juR"/>
                         <outlet property="noteTitle" destination="QYx-K2-yq5" id="2v0-Gf-C1w"/>

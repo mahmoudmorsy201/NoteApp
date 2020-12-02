@@ -29,30 +29,30 @@ class NoteDisplayViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
 
-    
-    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-
-        if update == true {
-            updateNote()
-            self.navigationController?.popViewController(animated: true)
-        } else if noteTitle.text != "" && noteContent.text != "" {
-            newNote.title = noteTitle.text!
-            newNote.noteContet = noteContent.text!
-            newNote.date = Date()
-            do {
-                try realm.write {
-                    realm.add(newNote)
+        if self.isMovingFromParent {
+            if update == true {
+                updateNote()
+                self.navigationController?.popViewController(animated: true)
+            } else if noteTitle.text != "" || noteContent.text != "" {
+                newNote.title = noteTitle.text!
+                newNote.noteContet = noteContent.text!
+                newNote.date = Date()
+                do {
+                    try realm.write {
+                        realm.add(newNote)
+                    }
+                }catch {
+                    print("Error saving note, \(error)")
                 }
-            }catch {
-                print("Error saving note, \(error)")
+                self.navigationController?.popViewController(animated: true)
             }
-            self.navigationController?.popViewController(animated: true)
         }
     }
+
+
     
     //MARK: - Updating current cell in the table view
     
