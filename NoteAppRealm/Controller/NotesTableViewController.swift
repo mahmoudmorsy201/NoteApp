@@ -12,6 +12,8 @@ import RealmSwift
 
 class NotesTableViewController: UIViewController {
     
+
+    
     let realm = try! Realm()
     
     var notes: Results<Note>?
@@ -25,10 +27,13 @@ class NotesTableViewController: UIViewController {
         notesTableView.delegate = self
         notesTableView.dataSource = self
         searchBar.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         loadNotes()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,12 +97,17 @@ extension NotesTableViewController: UITableViewDataSource {
         cell.cellTitle.text = notes?[indexPath.row].title ?? "No Notes Added"
         cell.cellNote.text = notes?[indexPath.row].noteContet
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        let date = dateFormatter.string(from: Date())
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "dd-MM-yyyy"
+//        let date = dateFormatter.string(from: Date())
+        
+        let now = Date()
+        let date = now.formatRelativeString()
+        
         cell.cellDate.text = date
         
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -158,6 +168,33 @@ extension NotesTableViewController: UISearchBarDelegate {
     }
     
 }
+
+extension Date {
+
+    func formatRelativeString() -> String {
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar(identifier: .gregorian)
+        dateFormatter.doesRelativeDateFormatting = true
+
+        if calendar.isDateInToday(self) {
+            dateFormatter.timeStyle = .short
+            dateFormatter.dateStyle = .none
+        } else if calendar.isDateInYesterday(self){
+            dateFormatter.timeStyle = .none
+            dateFormatter.dateStyle = .medium
+        } else if calendar.compare(Date(), to: self, toGranularity: .weekOfYear) == .orderedSame {
+            let weekday = calendar.dateComponents([.weekday], from: self).weekday ?? 0
+            return dateFormatter.weekdaySymbols[weekday-1]
+        } else {
+            dateFormatter.timeStyle = .none
+            dateFormatter.dateStyle = .short
+        }
+
+        return dateFormatter.string(from: self)
+    }
+}
+
+
 
 
 

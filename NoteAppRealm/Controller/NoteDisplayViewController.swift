@@ -16,8 +16,7 @@ class NoteDisplayViewController: UIViewController {
     var selectedNote: Note?
     var update = false
     
-    
-    @IBOutlet weak var deleteButton: UIBarButtonItem!
+
     @IBOutlet weak var noteContent: UITextView!
     @IBOutlet weak var noteTitle: UITextField!
     
@@ -31,24 +30,9 @@ class NoteDisplayViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        if update == false {
-//            self.deleteButton.isEnabled = false
-//            self.deleteButton.title = ""
-//        }
+        
     }
-//    @IBAction func deleteButtonPressed(_ sender: UIBarButtonItem) {
-//        do {
-//            try realm.write {
-//                if let currentNote = selectedNote {
-//                    realm.delete(currentNote)
-//                }
-//            }
-//        } catch {
-//            print("Error Deleting current note, \(error)")
-//        }
-//        
-//        self.navigationController?.popViewController(animated: true)
-//    }
+
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
 

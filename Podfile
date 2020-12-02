@@ -7,5 +7,7 @@ target 'NoteAppRealm' do
   # Pods for NoteAppRealm
   
   pod 'RealmSwift'
+  pod 'IQKeyboardManagerSwift'
+
 
 end

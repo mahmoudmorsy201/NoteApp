@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SwipeCellKit
+
 
 class NotesTableViewCell: UITableViewCell {
 
@@ -17,6 +17,8 @@ class NotesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        cellNote.adjustsFontSizeToFitWidth = false
+        cellNote.lineBreakMode = .byTruncatingTail
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -36,21 +36,24 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yBf-lK-Lq1">
-                                                    <rect key="frame" x="5" y="5" width="64" height="73"/>
+                                                    <rect key="frame" x="15" y="5" width="300" height="73"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HI7-mR-34B">
-                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="32.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="32.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59O-qT-gWW">
-                                                            <rect key="frame" x="0.0" y="40.5" width="64" height="32.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                            <rect key="frame" x="0.0" y="40.5" width="300" height="32.5"/>
+                                                            <fontDescription key="fontDescription" name="Charter-Italic" family="Charter" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="RbB-eO-Xq3"/>
+                                                    </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Es-eo-XdJ">
                                                     <rect key="frame" x="363.5" y="31" width="25.5" height="21"/>
@@ -64,7 +67,7 @@
                                                 <constraint firstItem="0Es-eo-XdJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i0B-As-8ez" secondAttribute="leadingMargin" id="GLj-am-LOI"/>
                                                 <constraint firstItem="0Es-eo-XdJ" firstAttribute="top" secondItem="i0B-As-8ez" secondAttribute="topMargin" constant="20" id="SqX-nx-AYa"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="0Es-eo-XdJ" secondAttribute="trailing" constant="5" id="ijH-c6-sqs"/>
-                                                <constraint firstItem="yBf-lK-Lq1" firstAttribute="leading" secondItem="i0B-As-8ez" secondAttribute="leading" constant="5" id="m3f-Pc-wtz"/>
+                                                <constraint firstItem="yBf-lK-Lq1" firstAttribute="leading" secondItem="i0B-As-8ez" secondAttribute="leading" constant="15" id="m3f-Pc-wtz"/>
                                                 <constraint firstAttribute="bottom" secondItem="yBf-lK-Lq1" secondAttribute="bottom" constant="5" id="pgV-zN-C8e"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="0Es-eo-XdJ" secondAttribute="bottom" constant="20" id="y6W-jP-yAw"/>
                                             </constraints>
@@ -122,8 +125,8 @@
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QYx-K2-yq5">
                                 <rect key="frame" x="10" y="100" width="394" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HN5-Qk-Y8k"/>
